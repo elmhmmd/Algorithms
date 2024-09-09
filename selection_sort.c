@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-int i,array[100];
+int z,x,i,array[100];
 
 printf("combien d'entier voulez vous saisir dans le tableau? ");
 scanf("%d",&i);
@@ -14,16 +14,18 @@ for(int a=0; a<i ; a++)
 {
 printf("%d ",array[a]);
 }
-for (int y=1;y<i;y++)
+for (int y=0;y<i;y++)
 {
-int k = y-1;
-int key = array[y];
-while (k>=0 && array[k]>key)
+int k = y; 
+for (x=y+1;x<i;x++)
 {
- array[k+1] = array[k];
- k--;
+if (array[x]<array[k]){
+k = x;
 }
-array[k+1] = key; 
+}
+z = array[k];
+array[k] = array [y]; 
+array[y] = z;
 }
 printf("\n");
 for (int a=0;a<i; a++)
